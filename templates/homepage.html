@@ -1,0 +1,75 @@
+{% extends 'common.html' %}
+{% block common %}
+<table border="0" align="center">
+    <tr><th style="text-align: center;font-size: 250%;font-family: cursive;color:red; text-shadow: green">Welcome to Our Training Institute</th></tr>
+</table>
+
+    {% if show_all_courses %}
+         <br>
+    <table align="center" border="0">
+    <tr><th style="background-color: #4CAF50;color: white">All Course Details</th></tr>
+    </table>
+<br>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<table id="customers" align="center">
+  <tr><th>Course ID</th>
+        <th>Course Name</th>
+        <th>Course Duration</th>
+        <th>Course Fee</th>
+        <th>Course Start_date</th>
+        <th>Course Start Time</th>
+        <th>Course Trainer Name</th>
+        <th>Course Trainer Exp</th>
+
+    </tr>
+  {% for x in show_all_courses %}
+
+       <tr>
+           <td>{{ x.course_id }}</td>
+           <td>{{ x.course_name }}</td>
+           <td>{{ x.course_duration }}</td>
+           <td>{{ x.course_fee }}</td>
+           <td>{{ x.course_start_date }}</td>
+           <td>{{ x.course_start_time }}</td>
+            <td>{{ x.course_trainer_name }}</td>
+           <td>{{ x.course_trainer_exp }}</td>
+
+       </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
+
+    {% endif %}
+
+{% endblock %}

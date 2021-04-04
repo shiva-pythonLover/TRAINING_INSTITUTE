@@ -25,7 +25,7 @@ SECRET_KEY = '31wm#1w&t$ip7e9b_f&o5#u3)a440rqh&&vv*(f69ho%+j4rd1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['TRAINING_INSTITUTE.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_ADVANCED_LEARNING_INSTITUTE.apps.AppAdvancedLearningInstituteConfig',
+    'softTech',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -101,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -120,4 +121,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#TIME_ZONE = 'Asia/Kolkata'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+
+#DataFlair
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sivasankarraju002@gmail.com'
+EMAIL_HOST_PASSWORD = 'sivakings9676'
+EMAIL_USE_SSL = False

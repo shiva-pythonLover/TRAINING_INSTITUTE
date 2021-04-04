@@ -1,0 +1,38 @@
+
+<table border="0" align="center">
+    <tr><th style="text-align: center;font-size: 250%;font-family: cursive;color:red; text-shadow: green">Welcome to Our Training Institute</th></tr>
+    <tr><th style="color: white;text-align: center;font-size: 200%;background-color: green;font-family: FontAwesome">Please Enter Your Contact Details</th></tr>
+</table>
+    {% if messages %}
+        <table align="center" border="0">
+        {% for message in messages %}
+            <tr><th style="font-size: 100%;color: green">{{ message }}</th></tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+
+    <form action="{% url 'contact'%}" method="post" novalidate>
+    {% csrf_token %}
+        {{ contact_form.as_p }}
+        <button style="background-color: black;color: white" type="submit">send</button>
+    </form>
+        {% comment %}
+    <table border="0" align="center">
+    <tr><th></th><th></th></tr>
+        <tr><th>Name:</th><th >{{ contact_form.name }}</th></tr>
+    <tr><th>Email:</th><th>{{ contact_form.email }}</th></tr>
+    <tr><th>Phone.No:</th><th>{{ contact_form.phone }}</th></tr>
+        <tr><th>Courses:</th></tr>
+        <tr><th>{{ contact_form.courses }}</th></tr>
+        <tr><th>Shifts:</th></tr>
+        <tr><th>{{ contact_form.shifts }}</th></tr>
+        <tr><th>Location:</th></tr>
+        <tr><th>{{ contact_form.location }}</th></tr>
+    <tr><th>Gender:</th></tr>
+        <tr><th>{{ contact_form.gender }}</th></tr>
+        <tr><th>Start Date:</th><th>{{ contact_form.start_date}}</th></tr>
+    <tr><th style="text-align: right"><button style="background-color: black;color: white" type="submit">Submit</button> </th><th style="text-align: left;"><button style="background-color: red;color: white" type="submit">Clear</button> </th></tr>
+
+      </table>
+      {% endcomment %}
+

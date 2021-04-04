@@ -13,22 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from app_ADVANCED_LEARNING_INSTITUTE import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from softTech import urls as softech
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.mainpage, name="home"),
-    path('contact/', views.Contact.as_view(), name="contact"),
-    path('adminlogin/',views.AdminLogin.as_view(),name="adminlogin"),
-    path('add_course/',views.AddCourse.as_view(),name="add_course"),
-    path('view_all_courses/',views.view_all_courses,name="view_all_courses"),
-    path('update/',views.Update.as_view(),name="update"),
-    path('show_all_courses/', views.show_all_courses, name="show_all_courses"),
-    path('feedback/',views.FeedBack.as_view(),name="feedback"),
-    path('view_all_students',views.view_all_students,name="view_all_students"),
-
+   # path('admin/', admin.site.urls),
+    path('softech/',include(softech)),
 
 
 ]
+if settings.DEBUG:
+    urlpatterns = urlpatterns+static(settings.MEDIA_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns+static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)

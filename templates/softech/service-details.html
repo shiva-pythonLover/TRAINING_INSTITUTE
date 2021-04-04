@@ -1,0 +1,351 @@
+{% load static %}
+<!doctype html>
+<html>
+
+<!-- Mirrored from sbtechnosoft.com/educenter/service-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Dec 2020 08:11:29 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>EduCenter - Education Responsive HTML5 Template</title>
+<!-- Plugins CSS -->
+<link href="{% static 'css/plugins.css'%}" rel="stylesheet" >
+<!-- Custom CSS -->
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico'%}">
+</head>
+
+<body>
+<!-- Pre Loader -->
+<div id="dvLoading"></div>
+<!-- Header Area -->
+<header class="header" > 
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-5 col-12"> 
+          <!-- Contact -->
+          <ul class="top-link">
+            <li><a href="{% url 'aboutus' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li><a href="{% url 'faq' %}">FAQ</a></li>
+          </ul>
+          <!-- End Contact --> 
+        </div>
+        <div class="col-lg-6 col-md-7 col-12"> 
+          <!-- Top Contact -->
+          <ul class="top-contact">
+            <li><i class="fa fa-phone"></i>+010 1234 56789</li>
+            <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
+          </ul>
+          <!-- End Top Contact --> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Topbar --> 
+  <!-- Header Inner -->
+  <div class="header-inner">
+    <div class="container">
+      <div class="inner">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-12"> 
+            <!-- Start Logo -->
+            <div class="logo"> <a href="{% url 'index' %}"><img src="{% static 'images/logo.png'%}" alt=""></a> </div>
+            <!-- End Logo --> 
+            <!-- Mobile Nav -->
+            <div class="mobile-nav"></div>
+            <!-- End Mobile Nav --> 
+          </div>
+          <div class="col-lg-7 col-md-9 col-12"> 
+            <!-- Main Menu -->
+            <div class="main-menu">
+              <nav class="navigation">
+                <ul class="nav menu">
+                  <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                  <li><a href="{% url 'aboutus' %}">About Us</a></li>
+                  <li><a href="JavaScript:Void(0)">Services <i class="icofont-rounded-down"></i></a>
+                    <ul class="dropdown">
+                      <li><a href="{% url 'service' %}">Service</a></li>
+                      <li><a href="{% url 'service-details' %}">Service Details</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="JavaScript:Void(0)">Pages <i class="icofont-rounded-down"></i></a>
+                    <ul class="dropdown">
+                      <li> <a href="{% url 'aboutus' %}" >About Us</a> </li>
+                      <li> <a href="{% url 'pricing' %}" >Pricing</a> </li>
+                      <li> <a href="{% url 'testimonials' %}" >Testimonials</a> </li>
+                      <li> <a href="{% url 'team' %}" >Team</a> </li>
+                      <li> <a href="{% url 'terms-conditions' %}" >Terms Conditions</a> </li>
+                      <li> <a href="{% url 'privacy-policy' %}" >Privacy Policy</a> </li>
+                      <li> <a href="{% url 'log-in' %}" >Log In</a> </li>
+                      <li> <a href="{% url 'sign-up' %}" >Sign Up</a> </li>
+                      <li> <a href="{% url 'coming-soon' %}" >Coming Soon</a> </li>
+                      <li> <a href="{% url 'faq' %}" >FAQ</a> </li>
+                      <li> <a href="#" >404 Error</a> </li>
+                    </ul>
+                  </li>
+                  <li><a href="JavaScript:Void(0)">Blog <i class="icofont-rounded-down"></i></a>
+                    <ul class="dropdown">
+                      <li><a href="{% url 'blog-grid' %}">Blog Grid</a></li>
+                      <li><a href="{% url 'blog-single' %}">Blog Details</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+              </nav>
+            </div>
+            <!--/ End Main Menu --> 
+          </div>
+          <div class="col-lg-2 col-12">
+            <div class="get-quote"> <a href="#quote-popup" class="btn open-popup-link">Get A Quote</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ End Header Inner --> 
+</header>
+<!-- Quote Section -->
+<div class="quote-part mfp-hide" id="quote-popup">
+  <div class="container">
+    <div class="section-title"> <span class="section-span">Get A Quote</span>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <form class="quote-form" action="{% url 'send_quote' %}" method="post">
+            {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Name" name="form_name" required>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Email" name="form_email" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Subject" name="form_subject" required>
+            </div>
+            <div class="col-md">
+              <input type="text" class="form-control" placeholder="Job Tittle" name="form_jobtitle" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message" rows="4" name="form_message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Header Area --> 
+<!-- Breadcrumbs -->
+<div class="breadcrumbs overlay">
+    <div class="container">
+      <div class="bread-inner">
+        <div class="row">
+          <div class="col-12">
+            <h2>Services</h2>
+            <ul class="bread-list">
+              <li><a href="{% url 'index' %}">Home</a></li>
+              <li><i class="icofont-simple-right"></i></li>
+              <li class="active">Service Details</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumbs -->
+<!-- Start Feature section Area -->
+<div class="inner-content-wrapper services-sec services-details-area">
+  <div class="container">
+    <div class="row">
+        <div class="col-xl-4 col-lg-5 mb-30">
+          <div class="widget mb-40">
+            <h3 class="widget-title">Categories</h3>
+            <ul class="service-list">
+              <li> <a href="JavaScript:Void(0)">Sea Freight </a> </li>
+              <li> <a href="JavaScript:Void(0)">Medical Service </a> </li>
+              <li> <a href="{% url 'online-courses' %}">Online Courses </a> </li>
+              <li> <a href="JavaScript:Void(0)">Many Sports </a> </li>
+              <li> <a href="JavaScript:Void(0)">Customer Support </a> </li>
+            </ul>
+          </div>
+          <div class="widget">
+            <form class="search-form">
+              <input type="text" placeholder="Search...">
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="col-xl-8 col-lg-7">
+          <div class="services-details-wrapper">
+            <div class="services-details-img mb-45"> <img src="{% static 'images/services-img.jpg'%}" alt=""> </div>
+            <div class="services-details-text">
+              <h2>What is Lorem Ipsum?</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodLorem ipsum dolor sit amet, consect etur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis autt reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            </div>
+            <div class="row mt-5">
+              <div class="col-xl-6 col-lg-6">
+                <div class="services-details-img mb-30"> <img src="{% static 'images/services-img2.jpg'%}" alt=""> </div>
+              </div>
+              <div class="col-xl-6 col-lg-6">
+                <div class="services-details-info mb-30">
+                  <h3>Our Services</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisi cing elit, sed do eiusmodLorem ipsum dolor sit amet, consect etur adipisicing </p>
+                  <ul>
+                    <li>Awesome Courses</li>
+                    <li>Medical Service</li>
+                    <li>Online Courses</li>
+                    <li>Customer Support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+  </div>
+</div>
+<!-- End Feature section Area --> 
+<!-- Start Counter Sec Area -->
+<div class="counter-sec-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="counter-sec text-center">
+          <div class="animated-bg"><i></i><i></i><i></i> </div>
+          <i class="count-icon icon-profile-male"></i> <span class="count-nos" id="target">25890</span>
+          <p class="count-lable">Students</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="counter-sec text-center">
+          <div class="animated-bg"><i></i><i></i><i></i> </div>
+          <i class="count-icon icon-strategy"></i> <span class="count-nos" id="target2">1560</span>
+          <p class="count-lable">Instructor</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="counter-sec text-center">
+          <div class="animated-bg"><i></i><i></i><i></i> </div>
+          <i class="count-icon icon-puzzle"></i> <span class="count-nos" id="target3">21350</span>
+          <p class="count-lable">Courses</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="counter-sec text-center">
+          <div class="animated-bg"><i></i><i></i><i></i> </div>
+          <i class="count-icon icon-trophy"></i> <span class="count-nos" id="target4">128560</span>
+          <p class="count-lable">Earnings</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Counter Sec Area --> 
+<!-- Start Brand Wrapper -->
+<div class="brand-wrapper">
+  <div class="container">
+    <div class="owl-carousel owl-theme brand-slider">
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-1.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-2.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-3.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-4.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-2.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-1.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-3.png'%}" alt="" title=""></a> </div>
+      <div class="item"> <a target="_blank" href="JavaScript:Void(0)"> <img src="{% static 'images/client-logo-4.png'%}" alt="" title=""></a> </div>
+    </div>
+  </div>
+</div>
+<!-- End Brand Wrapper -->
+<!-- footer -->
+<footer class="bg-black">
+  <div class="container p-footer">
+    <div class="row justify-content-between">
+      <!-- footer content -->
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <!-- logo -->
+        <a class="mb-4 f-logo d-inline-block" href="{% url 'index' %}"><img src="{% static 'images/footer-logo.png'%}" alt=""></a>
+        <p class="text-light">Lorem ipsum dolor amet consectetur adipisicing elit sed eiusm tempor incididunt ut
+          labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamaboris nisi ut aliquip.exea
+          commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        <!-- social links -->
+        <ul class="list-inline social-icon-fotter">
+          <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="javascript:void(0)"><i class="fab fa-google"></i></a></li>
+              <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-6">
+            <h4 class="text-white mb-4">Quick Links</h4>
+            <ul class="list-styled">
+              <li class="mb-lg-3 mb-2 text-light"><a class="text-light d-block" href="{% url 'index' %}">Home</a></li>
+              <li class="mb-lg-3 mb-2 text-light"><a class="text-light d-block" href="{% url 'aboutus' %}">About us</a></li>
+              <li class="mb-lg-3 mb-2 text-light"><a class="text-light d-block" href="{% url 'blog' %}">Blog</a></li>
+              <li class="mb-lg-3 mb-2 text-light"><a class="text-light d-block" href="{% url 'team' %}">Team</a></li>
+              <li class="mb-lg-3 mb-2 text-light"><a class="text-light d-block" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <h4 class="text-white mb-4">Contact Info</h4>
+            <ul class="list-unstyled">
+              <li class="text-light mb-3"><address>1004 Suten Trance Apt. 401 North illie, MC 364445</address></li>
+              <li class="text-light mb-3"><a href="tel:+910000000000">+91000 000 0000</a> </li>
+              <li class="text-light mb-3"><a href="mailto:info@test.com">info@test.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="container copyright-c">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 text-center text-center text-lg-left mb-3 mb-md-0">
+        <p class="mb-0 text-white">© Copyright <span id="year"></span> Educenter Template by <span class="color">SBTechnosoft</span>.
+      </div>
+      <div class="col-lg-6 col-md-12 text-center text-lg-right">
+        <ul class="list-inline">
+          <li class="list-inline-item mx-0"><a class="d-inline-block px-3 text-white border-right" href="{% url 'terms-conditions' %}">Terms of Service</a></li>
+          <li class="list-inline-item mx-0"><a class="d-inline-block px-3 text-white" href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer><!-- footer -->
+<!--jquery js --> 
+<script src="{%  static 'js/jquery-min.js'%}"></script>
+<!-- Popper Min JS --> 
+<script src="{%  static 'js/popper.min.js'%}"></script>
+<!--jquery js --> 
+<script src="{%  static 'js/bootstrap.min.js'%}"></script>
+<!--jquery js --> 
+<script src="{%  static 'js/plugins.js'%}"></script>
+<!--Fontawesome js --> 
+<script src="{%  static 'js/fontawesome.js'%}"></script>
+<!-- Owl Carousel js --> 
+<script src="{%  static 'js/swiper-slider.js'%}"></script>
+<!-- Fancybox js --> 
+<script src="{%  static 'js/fancybox.js'%}"></script>
+<!--owl.carousel js --> 
+<script src="{%  static 'js/jquery.animateNumber.min.js'%}"></script>
+<!-- MagnificPopup JS --> 
+<script src="{%  static 'js/jquery.magnific-popup.min.js'%}"></script>
+<!-- Slicknav js --> 
+<script src="{%  static 'js/slicknav.min.js'%}"></script>
+<!--jquery js --> 
+<script src="{%  static 'js/custom.js'%}"></script>
+</body>
+
+<!-- Mirrored from sbtechnosoft.com/educenter/service-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Dec 2020 08:11:46 GMT -->
+</html>

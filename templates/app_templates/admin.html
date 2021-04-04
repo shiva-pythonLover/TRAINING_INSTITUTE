@@ -1,0 +1,26 @@
+    <br><br><br>
+    {% if adminlogin_form %}
+    <!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+    <form action="{% url 'adminlogin' %}" method="post">
+    {% csrf_token %}
+     <table id="round1" align="center" border="0" width="50%" height="400">
+     <tr><th style="font-size: 150%;background-color: #4CAF50;color: white;text-align: center" colspan="2" >ADMIN LOGIN</th></tr>
+     <tr><th style="text-align: right">User Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;:&ensp;&ensp;&ensp;&ensp;</th><th style="text-align: left">{{ adminlogin_form.User_Name }}</th></tr>
+     <tr><th style="text-align: right">Password&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;:&ensp;&ensp;&ensp;&ensp;</th><th style="text-align: left">{{ adminlogin_form.Password }}</th></tr>
+     <tr><th style="text-align: right"><button style="background-color: #4CAF50;color: white" type="submit">SUBMIT</button> </th><th><button style="background-color: red;color: white" type="submit">RESET</button></th></tr>
+     </table>
+    </form>
+    {% endif %}
+</body>
+

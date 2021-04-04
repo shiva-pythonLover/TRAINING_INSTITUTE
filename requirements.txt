@@ -73,7 +73,7 @@ pylint==2.6.0
 pyparsing==2.4.7
 pyrsistent==0.16.0
 python-dateutil==2.8.1
-python-3.7.10
+python-3.7.0
 pytz==2019.3
 pywin32==228
 pywinpty==0.5.7
